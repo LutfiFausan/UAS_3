@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 
-interface PengaduanInterface { //
+interface PengaduanInterface { 
     public function insertData($data);//interfacenya polimorphism untuk mendefinisikan satu atau lebih metode 
 }
 
@@ -47,13 +47,13 @@ class Kejadian extends Pengadu implements PengaduanInterface {
 class PengaduanHandler {
     public function createPengaduan(PengaduanInterface $pengaduanObj, $data)
     {
-        $pengaduanObj->insertData($data);// polimorphism karena sama method dan beda perlakuan atau akan masuk ke class pengaduan
+        $pengaduanObj->insertData($data);// polimorphism karena memiliki method yang sama dengan inheritance dan tapi berbeda cara input dan codingannya atau  masuk ke class pengaduan
         echo "<script>alert('Berhasil Membuat Pengaduan')</script>";
     }
 }
 
 if (isset($_POST['buat'])) {
-    $pengaduanHandler = new PengaduanHandler();//objek
+    $pengaduanHandler = new PengaduanHandler();//objek yang masuk dalam bagian plimorphism
 
     $pengaduData = array(
         'nama' => $_POST['nama'],
